@@ -1,0 +1,17 @@
+
+{
+	"name": "Azure CLI",
+	"dockerFile": "Dockerfile",
+	
+	"settings": {},
+	
+	"extensions": [
+		"ms-vscode.azurecli",
+		"marp-team.marp-vscode"
+	],
+	
+	"remoteUser": "vscode",
+	"features": {
+		"azure-cli": "latest"
+	}
+}
