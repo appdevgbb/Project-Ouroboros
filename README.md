@@ -1,6 +1,8 @@
 # Project-Ouroboros
 
-![Project Ouroboros](img/Project-Ouroboros-Logo.jpeg)
+<p align="center"><img src="img/Project-Ouroboros-Logo-Small.jpeg" width="250" height="250"></p>
+
+
 
 A demo repo showing the constant cycle of Reliability/Chaos Engineering.
 
