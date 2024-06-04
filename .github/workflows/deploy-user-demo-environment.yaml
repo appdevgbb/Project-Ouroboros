@@ -2,8 +2,6 @@ name: Deploy User Demo Environment
   
 on:  
   push:  
-    branches:  
-      - '**'  # This pattern matches any branch  
     branches-ignore:  
       - main  # This pattern ignores the main branch
 
