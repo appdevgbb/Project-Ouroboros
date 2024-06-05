@@ -26,9 +26,10 @@ provider "github" {
 }
 
 locals {
-    subject = "repo:${var.github_org_name}/${var.github_repo_name}:${var.entity_type}:${var.entity_name}"
+    entity_type = "environment"
     project_name = "projectob"
     prefix = "${var.github_branch_name}${local.project_name}"
+    subject = "repo:${var.github_org_name}/${var.github_repo_name}:${local.entity_type}:${var.github_branch_name}"
 }
 
 data "azurerm_client_config" "current" {}

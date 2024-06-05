@@ -5,7 +5,7 @@ resource "azuread_service_principal" "msgraph" {
 }
 
 resource "azuread_application" "github-workload-identity" {
-    display_name = "${local.prefix}-${var.entity_type}-${var.entity_name}"
+    display_name = "${local.prefix}-${local.entity_type}-${var.github_branch_name}"
 
     required_resource_access {
         resource_app_id = data.azuread_application_published_app_ids.well_known.result.MicrosoftGraph
@@ -36,8 +36,8 @@ resource "azuread_app_role_assignment" "github-workload-identity" {
 
 resource "azuread_application_federated_identity_credential" "github-workload-identity" {
     application_id = azuread_application.github-workload-identity.id
-    display_name   = "${local.prefix}-${var.entity_type}-${var.entity_name}"
-    description    = "GH Workload Identity ${var.entity_type} ${var.entity_name}"
+    display_name   = "${local.prefix}-${local.entity_type}-${var.github_branch_name}"
+    description    = "GH Workload Identity ${local.entity_type} ${var.github_branch_name}"
     audiences      = ["api://AzureADTokenExchange"]
     issuer         = "https://token.actions.githubusercontent.com"
     subject        = "${local.subject}"
