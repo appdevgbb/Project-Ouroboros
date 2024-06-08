@@ -26,7 +26,7 @@ resource "github_actions_environment_secret" "tfprovider-client-id" {
     repository       = data.github_repository.default.name
     environment       = github_repository_environment.default.environment
     secret_name       = "ARM_CLIENT_ID"
-    plaintext_value   = azuread_service_principal.default.client_id
+    plaintext_value   = azurerm_user_assigned_identity.default.client_id
 }
 
 # create the github secret for TF provider tenant id
@@ -34,7 +34,7 @@ resource "github_actions_environment_secret" "tfprovider-tenant-id" {
     repository = data.github_repository.default.name
     environment = github_repository_environment.default.environment
     secret_name = "ARM_TENANT_ID"
-    plaintext_value = azuread_service_principal.default.application_tenant_id
+    plaintext_value = data.azurerm_client_config.current.tenant_id
 }
 
 # create the github secret for TF provider subscription id
